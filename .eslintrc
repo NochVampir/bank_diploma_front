@@ -1,0 +1,74 @@
+{
+  "extends": [
+    "airbnb",
+    "airbnb/hooks"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "tsconfigRootDir": "./"
+  },
+  "rules": {
+    "indent": 0,
+    "react/prop-types": 0,
+    "react/button-has-type": "off",
+    // note you must disable the base rule as it can report incorrect errors
+    // https://stackoverflow.com/a/64024916
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": ["error"],
+    // https://github.com/typescript-eslint/typescript-eslint/blob/master/docs/getting-started/linting/FAQ.md#i-get-errors-from-the-no-undef-rule-about-global-variables-not-being-defined-even-though-there-are-no-typescript-errors
+    "no-undef": "off",
+    "global-require": "off",
+    "react/require-default-props": 0,
+    "react/default-props-match-prop-types": [0, { "allowRequiredDefaults": true }],
+    "jsx-a11y/anchor-is-valid": [0, {
+      "components": ["Link"],
+      "specialLink": [ "to", "hrefLeft", "hrefRight"],
+      "aspects": ["noHref", "invalidHref", "preferButton"]
+    }],
+    "react/jsx-filename-extension": ["error", { "extensions": [".js", ".mjs", ".tsx"] }],
+    "react/jsx-props-no-spreading": "off",
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "react/jsx-boolean-value": "off",
+    "react/no-danger": ["warn"],
+    "import/extensions": ["warn", "never"],
+    "import/prefer-default-export": "off",
+    "no-plusplus": "off",
+    "no-nested-ternary": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off",
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/exhaustive-deps": "warn",
+    "linebreak-style": ["error", "unix"]
+  },
+  "plugins": [
+    "import",
+    "react",
+    "@typescript-eslint"
+  ],
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "globals": {
+    "SyntheticEvent": false
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      },
+      "typescript": {}
+    }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "@typescript-eslint/no-unused-vars": [2, { "args": "none" }]
+      }
+    }
+  ]
+}

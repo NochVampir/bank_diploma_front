@@ -1,0 +1,5 @@
+.error {
+    color: var(--redValue);
+    font-size: 14px;
+    line-height: 18px;
+}

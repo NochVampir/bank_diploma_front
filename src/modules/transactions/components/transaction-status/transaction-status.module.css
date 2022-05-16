@@ -1,0 +1,11 @@
+.statusText {
+    font-size: 22px;
+}
+
+.statusSuccess {
+    color: var(--greenValue);
+}
+
+.statusError {
+    color: var(--redValue);
+}

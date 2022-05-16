@@ -1,0 +1,24 @@
+.transactionItem {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.transactionAmount {
+    color: var(--greenValue);
+    font-weight: bold;
+}
+
+.transactionDecreaseAmount {
+    color: var(--redValue);
+}
+
+.personUsername, .createdTime {
+    font-size: 12px;
+    color: #a6a6a6;
+}
+
+.personUsername {
+    font-weight: bold;
+}

@@ -1,0 +1,20 @@
+.balance {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.balanceNoCenter {
+    justify-content: flex-start;
+}
+
+.balanceLabel {
+    font-size: 18px;
+    margin-right: 4px;
+}
+
+.balanceAmount {
+    font-size: 18px;
+    color: var(--greenValue);
+    font-weight: bold;
+}
