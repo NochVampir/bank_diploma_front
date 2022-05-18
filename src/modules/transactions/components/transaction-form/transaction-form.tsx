@@ -3,6 +3,7 @@ import {
   Button, Card, Form, Tab, Tabs,
 } from 'react-bootstrap';
 import { observer } from 'mobx-react';
+import { useNavigate } from 'react-router-dom';
 import { useTransactionForm } from '../../hooks/use-transaction-form';
 import { SuggestInput } from '../../../core/components/suggest-input/suggest-input';
 import { TransactionStatus } from '../transaction-status';
@@ -24,6 +25,7 @@ export const TransactionForm: React.FC = observer(() => {
     clearData,
     errors,
   } = useTransactionForm();
+  const navigate = useNavigate();
 
   return (
     <Card>
@@ -34,7 +36,7 @@ export const TransactionForm: React.FC = observer(() => {
               <TransactionStatus
                 isError={transactionStatus.isError}
                 onRepeat={clearData}
-                onNavigateToTransactions={() => {}}
+                onNavigateToTransactions={() => navigate('/transactions')}
               />
             )}
           </div>
