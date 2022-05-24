@@ -1,6 +1,10 @@
 import { makeAutoObservable } from 'mobx';
 import { Inject, Service } from 'typedi';
-import { TProfileDetailsResponse, TProfileLastActivityResponse } from '../../../api/types';
+import {
+  TProfileDetailsResponse,
+  TProfileLastActivityResponse,
+  TReplenishBalancePayload,
+} from '../../../api/types';
 import { ProfileApi } from '../api/profile-api';
 import { TExecuteResponse } from '../../../api';
 
@@ -18,6 +22,8 @@ export class ProfileStore {
   isLoading = false;
 
   isLoadingLastActivity = false;
+
+  isLoadingReplenish = false;
 
   isError = false;
 
@@ -40,6 +46,17 @@ export class ProfileStore {
       }
     } catch (e) {
       console.log(e);
+    }
+  }
+
+  * replenishBalance(payload: TReplenishBalancePayload) {
+    try {
+      this.isLoadingReplenish = true;
+      yield this.profileApi.replenishBalance(payload);
+    } catch (e) {
+      this.isError = true;
+    } finally {
+      this.isLoadingReplenish = false;
     }
   }
 

@@ -3,7 +3,7 @@ import { baseApi, HttpService } from '../../../api';
 import {
   TFindByNumberTransactionPayload,
   TFindByNumberTransactionResponse,
-  TProfileDetailsResponse, TProfileLastActivityResponse,
+  TProfileDetailsResponse, TProfileLastActivityResponse, TReplenishBalancePayload,
 } from '../../../api/types';
 
 @Service()
@@ -15,6 +15,14 @@ export class ProfileApi extends HttpService {
   getTokenDetails() {
     return this.execute<TProfileDetailsResponse>({
       url: '/account/details',
+    });
+  }
+
+  replenishBalance(payload: TReplenishBalancePayload) {
+    return this.execute({
+      url: '/account/replenish',
+      method: 'put',
+      data: payload,
     });
   }
 

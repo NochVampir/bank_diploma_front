@@ -77,3 +77,7 @@ export type TProfileLastActivityResponse = {
   type: 'increase' | 'decrease',
   value?: number
 }[]
+
+export type TReplenishBalancePayload = {
+  cost: number
+}
